@@ -16,7 +16,8 @@ customer_address	     Junction table linking customers to addresses	            
 Table	                   Description	                                                        Key Fields
 book_language	      Stores supported languages (e.g., "English", "French")	         language_id, language_name
 publisher	          Stores book publishers	                                         publisher_id, publisher_name
-book	              Stores book details	                                             book_id, book_author, isbn, publication_year, language_id (FK), publisher_id (FK), price, stock
+book	              Stores book details	                                             book_id, book_author, isbn, publication_year, 
+                                                                                     language_id (FK), publisher_id (FK), price, stock
 author	            Stores author details	                                           author_id, first_name, last_name
 book_author	        Junction table for books and authors (many-to-many)	             book_id (FK), author_id (FK)
 
@@ -24,9 +25,12 @@ book_author	        Junction table for books and authors (many-to-many)	        
 Table	                 Description	                                                     Key Fields
 order_status	         Tracks order statuses (e.g., "Pending", "Shipped")	            status_id, status_name
 shipping_method	       Stores shipping options (e.g., "Standard", "Express")	        shipping_method_id, method_name, cost
-cust_order	           Stores order headers	                                          order_id, customer_id (FK), order_date, shipping_method_id (FK), status_id (FK)
-order_line	           Stores ordered books and quantities	                          order_line_id, order_id (FK), book_id (FK), quantity, price
-order_history	         Logs order status changes	                                    order_history_id, order_id (FK), status_id (FK), changed_at
+cust_order	           Stores order headers	                                          order_id, customer_id (FK), order_date, 
+                                                                                      shipping_method_id (FK), status_id (FK)
+order_line	           Stores ordered books and quantities	                          order_line_id, order_id (FK), book_id (FK), 
+                                                                                      quantity, price
+order_history	         Logs order status changes	                                    order_history_id, order_id (FK), status_id (FK), 
+                                                                                      changed_at
 
 Database Users & Permissions
 User	                        Privileges	                                 Purpose
